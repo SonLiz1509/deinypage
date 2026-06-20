@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webbi - La Vitrina Digital Sencilla para tu Negocio</title>
+    <!-- Iconos de FontAwesome para el logo y redes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0072ff;
+            --secondary: #00c6ff;
+            --dark: #0f2b5c;
+            --light-bg: #f4f7fc;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo i {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            nav ul {
+                display: none; /* Simplificado para móviles */
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        /* Escalera de Valor / Planes */
+        .planes-section {
+            background-color: var(--light-bg);
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark);
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .planes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,114,255,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--dark);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card ul li i {
+            color: #2ecc71;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: auto;
+            border-top: 1px solid #eeeeee;
+            padding-top: 15px;
+        }
+
+        /* Portafolio */
+        .portfolio-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .portfolio-item {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eeeeee;
+        }
+
+        .portfolio-img-placeholder {
+            height: 180px;
+            background: linear-gradient(135deg, rgba(0,114,255,0.1), rgba(0,198,255,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 40px;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-info h4 {
+            color: var(--dark);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .portfolio-info p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Contacto */
+        .contact-section {
+            background-color: var(--white);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-info h2 {
+            color: var(--dark);
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #25d366;
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.3s, background-color 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebd57;
+            transform: translateY(-2px);
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 16px;
+        }
+
+        .contact-details li i {
+            color: var(--primary);
+            font-size: 20px;
+            width: 24px;
+        }
+
+        .contact-details li a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .contact-details li a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-link"></i> Webbi
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#soluciones">Soluciones</a></li>
+                    <li><a href="#portafolio">Portafolio</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Webbi: La Vitrina Digital Sencilla para tu Negocio</h1>
+            <p>Páginas web personalizadas, fáciles de usar y que atraen clientes. Empieza hoy mismo tu presencia en internet sin complicaciones técnicas.</p>
+            <a href="https://wa.me/522222233533?text=Hola%20Webbi,%20me%20gustar%C3%ADa%20cotizar%20una%20p%C3%A1gina%20para%20my%20negocio" class="whatsapp-btn" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Contáctanos por WhatsApp
+            </a>
+        </div>
+        <div style="text-align: center;">
+            <!-- Icono o representación visual minimalista -->
+            <i class="fa-solid fa-laptop-code" style="font-size: 180px; color: rgba(0,114,255,0.15);"></i>
+        </div>
+    </section>
+
+    <!-- Escalera de Valor / Precios -->
+    <section class="planes-section" id="soluciones">
+        <h2 class="section-title">Nuestra Escalera de Valor</h2>
+        <div class="planes-container" id="precios">
+            
+            <!-- Plan 1 -->
+            <div class="card">
+                <div>
+                    <h3>Vitrina Digital</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Página HTML Estática</li>
+                        <li><i class="fa-solid fa-check"></i> Mapa de Ubicación</li>
+                        <li><i class="fa-solid fa-check"></i> Fotos de Productos/Servicios</li>
+                        <li><i class="fa-solid fa-check"></i> Botón directo a WhatsApp</li>
+                    </ul>
+                </div>
+                <div class="price">$ - Pago Único</div>
+            </div>
+
+            <!-- Plan 2 -->
+            <div class="card">
+                <div>
+                    <h3>Profesional Interactivo</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Todo lo del plan Vitrina</li>
+                        <li><i class="fa-solid fa-check"></i> Formulario de Citas Digital</li>
+                        <li><i class="fa-solid fa-check"></i> Cotizador Automatizado</li>
+                        <li><i class="fa-solid fa-check"></i> Hosting Incluido</li>
+                    </ul>
+                </div>
+                <div class="price">$$ - Suscripción Anual</div>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="card">
+                <div>
+                    <h3>Gestión en la Nube</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Aplicación Web Completa</li>
+                        <li><i class="fa-solid fa-check"></i> Sistema de E-commerce</li>
+                        <li><i class="fa-solid fa-check"></i> Panel de Administración</li>
+                        <li><i class="fa-solid fa-check"></i> Base de Datos en la Nube</li>
+                    </ul>
+                </div>
+                <div class="price">$$$ - Mensualidad VPS</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Portafolio -->
+    <section class="portfolio-section" id="portafolio">
+        <h2 class="section-title">Casos de Éxito Locales</h2>
+        <div class="portfolio-grid">
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img-placeholder">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Clínica Médica</h4>
+                    <p>Plan Profesional Interactivo con agendamiento de citas.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img-placeholder">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Fondita de Comida Local</h4>
+                    <p>Plan Vitrina Digital con menú del día y pedidos por WhatsApp.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact-section" id="contacto">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>¿Listo para dar el siguiente paso? Háblanos:</h2>
+                <p style="margin-bottom: 20px; color: var(--text-muted);">Estamos listos para materializar tu idea y llevar tu negocio al siguiente nivel en internet de forma rápida y profesional.</p>
+                <a href="https://wa.me/522222233533?text=Hola%20Webbi,%20quiero%20empezar" class="whatsapp-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Mándanos un mensaje directo
+                </a>
+            </div>
+            <div>
+                <ul class="contact-details">
+                    <li><i class="fa-solid fa-phone"></i> <span><strong>Teléfono:</strong> (222) 223-3533</span></li>
+                    <li><i class="fa-solid fa-envelope"></i> <span><strong>Email:</strong> <a href="mailto:email@webbi.com">email@webbi.com</a></span></li>
+                    <li><i class="fa-solid fa-location-dot"></i> <span><strong>Mapa de Ubicación:</strong> Ecatepec de Morelos, Estado de México</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Webbi. Conectando Tu Negocio Local.</p>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/522222233533?text=Hola%20Webbi,%20necesito%20asesor%C3%ADa" class="floating-whatsapp" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
