@@ -1,0 +1,21 @@
+# Dependencias de Node
+node_modules/
+
+# Variables de entorno secretas
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos temporales de sistema (macOS)
+.DS_Store
+
+# Cobertura y builds (si aplica en el futuro)
+coverage/
+dist/
+build/
+
+# Documento privado de recuperación
+startup.md

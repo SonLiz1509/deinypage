@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webbi - La Vitrina Digital Sencilla para tu Negocio</title>
+    <title>Deiny Page - La Vitrina Digital Sencilla para tu Negocio</title>
     <!-- Iconos de FontAwesome para el logo y redes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0072ff;
-            --secondary: #00c6ff;
-            --dark: #0f2b5c;
-            --light-bg: #f4f7fc;
-            --text-dark: #333333;
-            --text-muted: #666666;
+            --primary: #1C2B59; /* Azul marino del texto */
+            --secondary: #63C1D6; /* Azul claro/cyan del logo */
+            --dark: #111A35;
+            --light-bg: #F8FAFC;
+            --text-dark: #2D3748;
+            --text-muted: #718096;
             --white: #ffffff;
         }
 
@@ -60,7 +60,7 @@
         }
 
         .logo i {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 28px;
@@ -212,7 +212,7 @@
 
         .portfolio-img-placeholder {
             height: 180px;
-            background: linear-gradient(135deg, rgba(0, 114, 255, 0.1), rgba(0, 198, 255, 0.1));
+            background: linear-gradient(135deg, rgba(99, 193, 214, 0.15), rgba(28, 43, 89, 0.15));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -349,6 +349,76 @@
         .floating-whatsapp:hover {
             transform: scale(1.1);
         }
+
+        /* AI Generator Section */
+        .ai-generator-section {
+            background-color: var(--white);
+            padding: 60px 20px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .ai-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(99, 193, 214, 0.2);
+        }
+
+        .ai-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .ai-form {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: var(--dark);
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--secondary);
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 500px;
+            border: 4px solid var(--dark);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -358,7 +428,7 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fa-solid fa-link"></i> Webbi
+                <img src="Media/Logo.png" alt="Deiny Page Logo" style="height: 45px; width: auto;">
             </a>
             <nav>
                 <ul>
@@ -374,17 +444,60 @@
     <!-- Sección Hero -->
     <section class="hero">
         <div class="hero-text">
-            <h1>Webbi: La Vitrina Digital Sencilla para tu Negocio</h1>
+            <h1>Deiny Page: La Vitrina Digital Sencilla para tu Negocio</h1>
             <p>Páginas web personalizadas, fáciles de usar y que atraen clientes. Empieza hoy mismo tu presencia en
                 internet sin complicaciones técnicas.</p>
-            <a href="https://wa.me/5215596343054?text=Hola%20Webbi,%20me%20gustar%C3%ADa%20cotizar%20una%20p%C3%A1gina%20para%20my%20negocio"
+            <a href="https://wa.me/5215596343054?text=Hola%20Deiny%20Page,%20me%20gustar%C3%ADa%20cotizar%20una%20p%C3%A1gina%20para%20my%20negocio"
                 class="whatsapp-btn" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> Contáctanos por WhatsApp
             </a>
         </div>
         <div style="text-align: center;">
             <!-- Icono o representación visual minimalista -->
-            <i class="fa-solid fa-laptop-code" style="font-size: 180px; color: rgba(0,114,255,0.15);"></i>
+            <i class="fa-solid fa-laptop-code" style="font-size: 180px; color: rgba(28, 43, 89, 0.15);"></i>
+        </div>
+    </section>
+
+    <!-- Lead Magnet AI -->
+    <section class="ai-generator-section" id="generador-ia">
+        <div class="ai-container">
+            <h2 class="section-title" style="margin-bottom: 10px;">¿Quieres ver cómo se vería tu página? ¡Pruébalo Gratis!</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-muted);">Cuéntanos de qué trata tu negocio y nuestra Inteligencia Artificial generará una vista previa en segundos.</p>
+            
+            <form id="ai-generator-form" class="ai-form">
+                <div class="form-group">
+                    <label for="lead-name">Tu Nombre:</label>
+                    <input type="text" id="lead-name" required placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="form-group">
+                    <label for="lead-whatsapp">Tu WhatsApp (Para contactarte):</label>
+                    <input type="tel" id="lead-whatsapp" required placeholder="Ej. 5512345678">
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="business-desc">Describe tu negocio (Servicios, ubicación, estilo):</label>
+                    <textarea id="business-desc" required rows="3" placeholder="Ej. Soy dentista en Monterrey, hago limpiezas y ortodoncia..."></textarea>
+                </div>
+                <button type="submit" class="whatsapp-btn" id="generate-btn" style="grid-column: 1 / -1; justify-content: center; margin-bottom: 0;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generar Mi Página con IA
+                </button>
+            </form>
+
+            <div id="ai-loading" style="display: none; text-align: center; padding: 40px;">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size: 40px; color: var(--secondary); margin-bottom: 15px;"></i>
+                <p>Nuestra IA está diseñando tu página... Esto tomará unos segundos.</p>
+            </div>
+
+            <div id="ai-result" style="display: none; margin-top: 40px;">
+                <h3 style="text-align: center; margin-bottom: 20px;">¡Tu vista previa está lista!</h3>
+                <div class="iframe-container">
+                    <iframe id="preview-iframe" title="Vista Previa Generada"></iframe>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="#contacto" class="whatsapp-btn" style="background-color: var(--primary);">
+                        <i class="fa-solid fa-rocket"></i> ¿Te gusta? ¡Hazla realidad con nosotros!
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -473,7 +586,7 @@
                 <h2>¿Listo para dar el siguiente paso? Háblanos:</h2>
                 <p style="margin-bottom: 20px; color: var(--text-muted);">Estamos listos para materializar tu idea y
                     llevar tu negocio al siguiente nivel en internet de forma rápida y profesional.</p>
-                <a href="https://wa.me/5596343054?text=Hola%20Webbi,%20quiero%20empezar" class="whatsapp-btn"
+                <a href="https://wa.me/5596343054?text=Hola%20Deiny%20Page,%20quiero%20empezar" class="whatsapp-btn"
                     target="_blank">
                     <i class="fa-brands fa-whatsapp"></i> Mándanos un mensaje directo
                 </a>
@@ -482,7 +595,7 @@
                 <ul class="contact-details">
                     <li><i class="fa-solid fa-phone"></i> <span><strong>Teléfono:</strong> 5596343054</span></li>
                     <li><i class="fa-solid fa-envelope"></i> <span><strong>Email:</strong> <a
-                                href="webbi_@outlook.com">email@webbi.com</a></span></li>
+                                href="mailto:hola@deinypage.com">hola@deinypage.com</a></span></li>
                     <li><i class="fa-solid fa-location-dot"></i> <span><strong>Mapa de Ubicación:</strong> Ecatepec de
                             Morelos, Estado de México</span></li>
                 </ul>
@@ -492,14 +605,66 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Webbi. Conectando Tu Negocio Local.</p>
+        <p>&copy; 2026 Deiny Page. Conectando Tu Negocio Local.</p>
     </footer>
 
     <!-- Botón Flotante de WhatsApp -->
-    <a href="https://wa.me/5215596343054?text=Hola%20Webbi,%20necesito%20asesor%C3%ADa" class="floating-whatsapp"
+    <a href="https://wa.me/5215596343054?text=Hola%20Deiny%20Page,%20necesito%20asesor%C3%ADa" class="floating-whatsapp"
         target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+
+    <!-- Script para Generador IA -->
+    <script>
+        document.getElementById('ai-generator-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('generate-btn');
+            const loading = document.getElementById('ai-loading');
+            const result = document.getElementById('ai-result');
+            const iframe = document.getElementById('preview-iframe');
+
+            // Recopilar datos
+            const name = document.getElementById('lead-name').value;
+            const whatsapp = document.getElementById('lead-whatsapp').value;
+            const businessDescription = document.getElementById('business-desc').value;
+
+            // Mostrar estado de carga
+            btn.style.display = 'none';
+            result.style.display = 'none';
+            loading.style.display = 'block';
+
+            try {
+                // Hacer petición al backend
+                const response = await fetch('/api/generate-demo', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, whatsapp, businessDescription })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Mostrar resultado
+                    loading.style.display = 'none';
+                    result.style.display = 'block';
+                    btn.style.display = 'flex'; // Restaurar botón
+                    
+                    // Renderizar HTML en el iFrame
+                    iframe.srcdoc = data.html;
+                } else {
+                    alert('Error: ' + (data.error || 'No se pudo generar la página.'));
+                    loading.style.display = 'none';
+                    btn.style.display = 'flex';
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Hubo un error de conexión. Asegúrate de que el servidor esté corriendo.');
+                loading.style.display = 'none';
+                btn.style.display = 'flex';
+            }
+        });
+    </script>
 
 </body>
 
