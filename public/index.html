@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1C2B59; /* Azul marino del texto */
-            --secondary: #63C1D6; /* Azul claro/cyan del logo */
+            --primary: #1C2B59;
+            /* Azul marino del texto */
+            --secondary: #63C1D6;
+            /* Azul claro/cyan del logo */
             --dark: #111A35;
             --light-bg: #F8FAFC;
             --text-dark: #2D3748;
@@ -285,6 +287,28 @@
             transform: translateY(-2px);
         }
 
+        .ai-generate-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(99, 193, 214, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .ai-generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(28, 43, 89, 0.4);
+        }
+
         .contact-details {
             list-style: none;
         }
@@ -391,7 +415,8 @@
             font-size: 14px;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input,
+        .form-group textarea {
             padding: 12px 15px;
             border: 1px solid #ccc;
             border-radius: 8px;
@@ -400,7 +425,8 @@
             transition: border-color 0.3s;
         }
 
-        .form-group input:focus, .form-group textarea:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             border-color: var(--secondary);
         }
 
@@ -410,7 +436,7 @@
             border: 4px solid var(--dark);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .iframe-container iframe {
@@ -461,9 +487,11 @@
     <!-- Lead Magnet AI -->
     <section class="ai-generator-section" id="generador-ia">
         <div class="ai-container">
-            <h2 class="section-title" style="margin-bottom: 10px;">¿Quieres ver cómo se vería tu página? ¡Pruébalo Gratis!</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-muted);">Cuéntanos de qué trata tu negocio y nuestra Inteligencia Artificial generará una vista previa en segundos.</p>
-            
+            <h2 class="section-title" style="margin-bottom: 10px;">¿Quieres ver cómo se vería tu página? ¡Pruébalo
+                Gratis!</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-muted);">Cuéntanos de qué trata tu
+                negocio y nuestra Inteligencia Artificial generará una vista previa en segundos.</p>
+
             <form id="ai-generator-form" class="ai-form">
                 <div class="form-group">
                     <label for="lead-name">Tu Nombre:</label>
@@ -475,15 +503,18 @@
                 </div>
                 <div class="form-group" style="grid-column: 1 / -1;">
                     <label for="business-desc">Describe tu negocio (Servicios, ubicación, estilo):</label>
-                    <textarea id="business-desc" required rows="3" placeholder="Ej. Soy dentista en Monterrey, hago limpiezas y ortodoncia..."></textarea>
+                    <textarea id="business-desc" required rows="3"
+                        placeholder="Ej. Soy dentista en Monterrey, hago limpiezas y ortodoncia..."></textarea>
                 </div>
-                <button type="submit" class="whatsapp-btn" id="generate-btn" style="grid-column: 1 / -1; justify-content: center; margin-bottom: 0;">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generar Mi Página con IA
+                <button type="submit" class="ai-generate-btn" id="generate-btn"
+                    style="grid-column: 1 / -1; justify-content: center; margin-bottom: 0;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generar Mi Página.
                 </button>
             </form>
 
             <div id="ai-loading" style="display: none; text-align: center; padding: 40px;">
-                <i class="fa-solid fa-spinner fa-spin" style="font-size: 40px; color: var(--secondary); margin-bottom: 15px;"></i>
+                <i class="fa-solid fa-spinner fa-spin"
+                    style="font-size: 40px; color: var(--secondary); margin-bottom: 15px;"></i>
                 <p>Nuestra IA está diseñando tu página... Esto tomará unos segundos.</p>
             </div>
 
@@ -616,9 +647,9 @@
 
     <!-- Script para Generador IA -->
     <script>
-        document.getElementById('ai-generator-form').addEventListener('submit', async function(e) {
+        document.getElementById('ai-generator-form').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const btn = document.getElementById('generate-btn');
             const loading = document.getElementById('ai-loading');
             const result = document.getElementById('ai-result');
@@ -649,7 +680,7 @@
                     loading.style.display = 'none';
                     result.style.display = 'block';
                     btn.style.display = 'flex'; // Restaurar botón
-                    
+
                     // Renderizar HTML en el iFrame
                     iframe.srcdoc = data.html;
                 } else {

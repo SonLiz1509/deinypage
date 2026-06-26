@@ -30,7 +30,7 @@ app.post('/api/generate-demo', async (req, res) => {
 
         // Define the prompt to generate the HTML
         const prompt = `Actúa como un desarrollador web experto.
-Genera una landing page de UNA SOLA PÁGINA (archivo HTML completo con CSS incrustado dentro de <style>) basada en la siguiente descripción del negocio del cliente:
+Genera una landing page de UNA SOLA PÁGINA (archivo HTML completo con CSS incrustado dentro de <style>) basada en la siguiente descripción del negocio del cliente, como version principal, codigo muy basico:
 
 "${businessDescription}"
 
@@ -47,18 +47,23 @@ Requisitos estrictos:
             contents: prompt,
             config: {
                 temperature: 0.7,
-                maxOutputTokens: 2000,
+                maxOutputTokens: 8000, // Aumentado para evitar que se corte
             }
         });
 
         let generatedHtml = response.text;
-        
+
         // Clean up markdown code blocks if the model included them
         if (generatedHtml.startsWith('```html')) {
             generatedHtml = generatedHtml.replace(/^```html\n/, '').replace(/\n```$/, '');
         } else if (generatedHtml.startsWith('```')) {
             generatedHtml = generatedHtml.replace(/^```\n/, '').replace(/\n```$/, '');
         }
+
+        // Mostrar en la terminal exactamente lo que respondió la IA para depurar
+        console.log("=== RESPUESTA DE LA IA ===");
+        console.log(generatedHtml);
+        console.log("==========================");
 
         res.json({ success: true, html: generatedHtml });
     } catch (error) {
